@@ -1,0 +1,80 @@
+version: '3'
+
+services:
+ redis1:
+  build:
+    context: redis
+  container_name: redis-6379
+  #network_mode: "host"
+  restart: always
+  volumes:
+   - ./data/redis_6379:/data
+  ports:
+    - 6379:6379
+    - 16379:16379
+  entrypoint: [redis-server, /etc/redis/rediscluster.conf, --port,"6379", --cluster-announce-ip,"${ip}"]
+  
+ redis2:
+  build:
+    context: redis
+  container_name: redis-6380
+  #network_mode: "host"
+  restart: always
+  volumes:
+   - ./data/redis_6380:/data
+  ports:
+    - 6380:6380
+    - 16380:16380
+  entrypoint: [redis-server, /etc/redis/rediscluster.conf, --port,"6380", --cluster-announce-ip,"${ip}"]
+
+ redis3:
+  build:
+    context: redis
+  container_name: redis-6381
+ # network_mode: "host"
+  restart: always
+  volumes:
+   - ./data/redis_6381:/data
+  ports:
+    - 6381:6381
+    - 16381:16381
+  entrypoint: [redis-server, /etc/redis/rediscluster.conf, --port,"6381", --cluster-announce-ip,"${ip}"]
+  
+ redis4:
+  build:
+    context: redis
+  container_name: redis-6382
+ # network_mode: "host"
+  restart: always
+  volumes:
+   - ./data/redis_6382:/data
+  ports:
+    - 6382:6382
+    - 16382:16382
+  entrypoint: [redis-server, /etc/redis/rediscluster.conf, --port,"6382", --cluster-announce-ip,"${ip}"]
+
+ redis5:
+  build:
+    context: redis
+  container_name: redis-6383
+ # network_mode: "host"
+  restart: always
+  volumes:
+   - ./data/redis_6383:/data
+  ports:
+    - 6383:6373
+    - 16373:16373
+  entrypoint: [redis-server, /etc/redis/rediscluster.conf, --port,"6383", --cluster-announce-ip,"${ip}"]
+  
+ redis6:
+  build:
+    context: redis
+  container_name: redis-6384
+#  network_mode: "host"
+  restart: always
+  volumes:
+   - ./data/redis_6384:/data
+  ports:
+    - 6384:6384
+    - 16384:16384
+  entrypoint: [redis-server, /etc/redis/rediscluster.conf, --port,"6384", --cluster-announce-ip,"${ip}"]
