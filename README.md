@@ -1,4 +1,4 @@
-![](Redis.png)
+![](Redis1.png)
 
 # This process will create 6 Redis nodes as the Master-Slave architecture with docker-compose and kubernetes.
 
